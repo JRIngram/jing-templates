@@ -229,18 +229,22 @@ assignees: <$USERNAME>
 " >> .github/ISSUE_TEMPLATE/feature_request.md
 }
 
+USAGE="Usage: ./jing-templates.sh githubUsername repoURL"
 
-
-echo "############## jing-templates ##############"
-echo $0
+if [ -z ${1} ] 
+    then 
+        echo "No argument set for USERNAME"
+        echo $USAGE
+        exit 1
+    fi
+if [ -z ${2} ] 
+    then 
+        echo "No argument set for URL"
+        echo $USAGE
+        exit 1
+    fi
 USERNAME=$1
 URL=$2
-echo $USERNAME
-echo $URL
-# echo "What is your github username?"
-# read USERNAME 
-# echo "What is the URL of the github repository?"
-# read URL
 write_changelog
 write_contributing
 mkdir -p .github/ISSUE_TEMPLATE
