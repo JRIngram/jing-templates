@@ -1,4 +1,4 @@
-# jring-templates
+# jing-templates
 Script to generate various templates for open source projects.
 
 Templates based on templates in this repo: https://github.com/JRIngram/maze-gen
