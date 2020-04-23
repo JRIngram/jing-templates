@@ -6,26 +6,25 @@
 #   * Bug Template 
 #   * Feature request Template 
 
-yes_no_input () {
-    echo "$1 [Y/N]"
-    read answer
-}
-
-echo "####### jing-templates #######"
+echo "############## jing-templates ##############"
 echo "What is your github username?"
 read USERNAME 
 
 echo "$USERNAME, what is the absolute path to your repository?"
-read PATH
-echo $PATH
-
-echo "What is the project name?"
-read PROJECT
-echo $PROJECT
+read REPOPATH
 
 echo "What is the URL of the github repository?"
 read URL
-echo $URL
 
-yes_no_input "Does this work?"
-echo $answer
+# Edit templates
+cp -r templates templates-bak
+
+# Change <USERNAME>
+sed -i "s/<USERNAME>/$USERNAME/g" templates-bak/.github/ISSUE_TEMPLATE/*.md
+sed -i "s/<USERNAME>/$USERNAME/g" templates-bak/.github/*.md
+sed -i "s/<USERNAME>/$USERNAME/g" templates-bak/*.md
+
+# Change <URL>
+sed -i "s/<URL>/$URL/g" templates-bak/.github/ISSUE_TEMPLATE/*.md
+sed -i "s/<URL>/$URL/g" templates-bak/.github/*.md
+sed -i "s/<URL>/$URL/g" templates-bak/*.md
