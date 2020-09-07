@@ -245,6 +245,7 @@ if [ -z ${2} ]
     fi
 USERNAME=$1
 URL=$2
+cd $URL
 write_changelog
 write_contributing
 mkdir -p .github/ISSUE_TEMPLATE
